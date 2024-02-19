@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="literature.html"/>
+<link rel="next" href="community-detection.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -84,18 +84,10 @@
 <li class="chapter" data-level="" data-path="stanford-youtube.html"><a href="stanford-youtube.html#choice-of-graph-representation"><i class="fa fa-check"></i>1.3 Choice of Graph Representation</a></li>
 <li class="chapter" data-level="" data-path="stanford-youtube.html"><a href="stanford-youtube.html#traditional-feature-based-methods-node"><i class="fa fa-check"></i>2.1 Traditional Feature-based Methods: Node</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a>
+<li class="chapter" data-level="2" data-path="community-detection.html"><a href="community-detection.html"><i class="fa fa-check"></i><b>2</b> Community detection</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="methods.html"><a href="methods.html#math-example"><i class="fa fa-check"></i><b>3.1</b> math example</a></li>
+<li class="chapter" data-level="2.1" data-path="community-detection.html"><a href="community-detection.html#louvain"><i class="fa fa-check"></i><b>2.1</b> Louvain</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dkidney/graphs-notes" target="blank">Published with bookdown</a></li>
 
@@ -175,15 +167,24 @@
 <ul>
 <li>map nodes to d-dimensional embeddings (using a function that is learned) such that similar nodes in the network are embedded close together</li>
 </ul>
+<hr />
 </div>
 </div>
 <div id="applications-of-graph-ml" class="section level3 unnumbered hasAnchor">
 <h3>1.2 Applications of Graph ML<a href="stanford-youtube.html#applications-of-graph-ml" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Link to <a href="https://www.youtube.com/watch?v=aBHC6xzx9YI&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=3">video</a></p>
+<div id="classic-graph-ml-tasks" class="section level4 hasAnchor" number="1.0.0.1">
+<h4><span class="header-section-number">1.0.0.1</span> Classic graph ML tasks<a href="stanford-youtube.html#classic-graph-ml-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>node classification - predicting a property of a node</li>
+</ul>
+<hr />
+</div>
 </div>
 <div id="choice-of-graph-representation" class="section level3 unnumbered hasAnchor">
 <h3>1.3 Choice of Graph Representation<a href="stanford-youtube.html#choice-of-graph-representation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Link to <a href="https://www.youtube.com/watch?v=P-m1Qv6-8cI&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=4">video</a></p>
+<hr />
 </div>
 <div id="traditional-feature-based-methods-node" class="section level3 unnumbered hasAnchor">
 <h3>2.1 Traditional Feature-based Methods: Node<a href="stanford-youtube.html#traditional-feature-based-methods-node" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -196,7 +197,7 @@
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="community-detection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -250,20 +251,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

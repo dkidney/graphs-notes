@@ -45,13 +45,23 @@ Sometimes the distinction between these two types (networks and graphs) is blurr
 
 * map nodes to d-dimensional embeddings (using a function that is learned) such that similar nodes in the network are embedded close together
 
+***
+
 ### 1.2 Applications of Graph ML {-}
 
 Link to [video](https://www.youtube.com/watch?v=aBHC6xzx9YI&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=3)
 
+#### Classic graph ML tasks
+
+* node classification - predicting a property of a node
+
+***
+
 ### 1.3 Choice of Graph Representation {-}
 
 Link to [video](https://www.youtube.com/watch?v=P-m1Qv6-8cI&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=4)
+
+***
 
 ### 2.1 Traditional Feature-based Methods: Node  {-}
 
