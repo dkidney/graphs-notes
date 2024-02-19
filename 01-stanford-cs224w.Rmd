@@ -1,0 +1,57 @@
+# Stanford CS224W {#stanford-youtube}
+
+Link to [playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
+
+### 1.1 Why Graphs {-}
+
+Link to [video](https://www.youtube.com/watch?v=JAB_plj2rbA&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=2)
+
+* Many types of data that can naturally be represented as graphs
+* Explicitly modeling the relational structure allows us to build more accurate models
+
+#### Types of networks and graphs {-}
+
+Sometimes the distinction between these two types (networks and graphs) is blurred.
+
+1. Networks (i.e. natural graphs
+
+* social networks
+* communication networks
+* interactions between genes and proteins
+* brain connections
+
+2. Graphs as a representation
+
+* similarity networks
+* 3d shapes
+* particle-based physics simulations
+
+#### Why is it hard {-}
+
+* modern deep learning methods designed for simple sequences and grids (e.g. images)
+* networks are complex
+  * arbitrary size
+  * no fixed node ordering or reference point
+  * often dynamic
+
+#### Deep learning in graphs {-}
+
+* want to build neural networks that take a graph as input and make output predictions at the level of:
+  * individual nodes
+  * links (i.e. pairs of nodes)
+  * new graphs / sub-graphs
+  
+#### Representation learning {-}
+
+* map nodes to d-dimensional embeddings (using a function that is learned) such that similar nodes in the network are embedded close together
+
+### 1.2 Applications of Graph ML {-}
+
+Link to [video](https://www.youtube.com/watch?v=aBHC6xzx9YI&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=3)
+
+### 1.3 Choice of Graph Representation {-}
+
+Link to [video](https://www.youtube.com/watch?v=P-m1Qv6-8cI&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=4)
+
+### 2.1 Traditional Feature-based Methods: Node  {-}
+
