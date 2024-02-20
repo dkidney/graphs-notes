@@ -105,8 +105,16 @@
 <div id="stanfordyoutube" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Stanford CS224W<a href="stanfordyoutube.html#stanfordyoutube" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Link to <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn">playlist</a></p>
-<div id="stanford1pt1" class="section level4 unnumbered hasAnchor">
-<h4>1.1 Why Graphs<a href="stanfordyoutube.html#stanford1pt1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="contents" class="section level4 unnumbered hasAnchor">
+<h4>Contents<a href="stanfordyoutube.html#contents" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><a href="stanfordyoutube.html#why-graphs">1.1 Why Graphs</a><br />
+<a href="stanfordyoutube.html#applications-of-graph-ml">1.2 Applications of Graph ML</a><br />
+<a href="stanfordyoutube.html#blah">1.3 Choice of Graph Representation</a></p>
+<p><a href="stanfordyoutube.html#blah">blah</a></p>
+<hr />
+</div>
+<div id="why-graphs" class="section level4 unnumbered hasAnchor">
+<h4>1.1 Why Graphs<a href="stanfordyoutube.html#why-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=JAB_plj2rbA&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=2">video</a></p>
 <ul>
 <li>Many types of data that can naturally be represented as graphs</li>
@@ -116,7 +124,7 @@
 <h5>Types of networks and graphs<a href="stanfordyoutube.html#types-of-networks-and-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p>Sometimes the distinction between these two types (networks and graphs) is blurred.</p>
 <ol style="list-style-type: decimal">
-<li>Networks (i.e. natural graphs</li>
+<li>Networks (i.e. natural graphs)</li>
 </ol>
 <ul>
 <li>social networks</li>
@@ -151,7 +159,7 @@
 <li>want to build neural networks that take a graph as input and make output predictions at the level of:
 <ul>
 <li>individual nodes</li>
-<li>links (i.e. pairs of nodes)</li>
+<li>edges (i.e. pairs of nodes)</li>
 <li>new graphs / sub-graphs</li>
 </ul></li>
 </ul>
@@ -161,6 +169,7 @@
 <ul>
 <li>map nodes to d-dimensional embeddings (using a function that is learned) such that similar nodes in the network are embedded close together</li>
 </ul>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
 </div>
@@ -171,7 +180,7 @@
 <h5>classic graph ML tasks<a href="stanfordyoutube.html#classic-graph-ml-tasks" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <ul>
 <li>node classification - predicting a property of a node</li>
-<li>link prediction - predicting whether there are missing links</li>
+<li>edge prediction - predicting whether there are missing edges</li>
 <li>graph classification - categorizing graphs</li>
 <li>clustering - community detection</li>
 <li>graph generation</li>
@@ -185,23 +194,170 @@
 <li>in 2020 DeepMind announced AlphaFold which performed this task with high accuracy</li>
 <li>key idea was to represent the amino acids as a spatial graph
 <ul>
-<li>nodes = amino acids</li>
+<li>nodes = amino acids - tried to predict position in space</li>
 <li>edges = proximity between amino acids</li>
 </ul></li>
 </ul>
 </div>
-<div id="edge-level-example" class="section level5 unnumbered hasAnchor">
-<h5>edge-level example: ???<a href="stanfordyoutube.html#edge-level-example" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="edge-level-example-recommender-systems" class="section level5 unnumbered hasAnchor">
+<h5>edge-level example: recommender systems<a href="stanfordyoutube.html#edge-level-example-recommender-systems" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>nodes = users and items</li>
+<li>edges = user-item interactions</li>
+<li>want to predict what other items users might be interested in in the future</li>
+<li>task: learn node embeddings such that nodes that are related are closer to nodes that are unrelated</li>
+</ul>
+</div>
+<div id="edge-level-example-2-drug-side-effects" class="section level5 unnumbered hasAnchor">
+<h5>edge-level example 2: drug side-effects<a href="stanfordyoutube.html#edge-level-example-2-drug-side-effects" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>many patients take multiple drugs to treat complex / co-existing diseass</li>
+<li>interactions can lead to side-effects</li>
+<li>task: given a pair of drugs, predict adverse side effects</li>
+<li>nodes = drug or protein</li>
+<li>edge = drug-drug side effects, drug-protein interaction, protein-protein interaction</li>
+<li>want to predict drug-drug interactions</li>
+</ul>
+</div>
+<div id="subgraph-level-example-traffic-prediction" class="section level5 unnumbered hasAnchor">
+<h5>subgraph-level example: traffic prediction<a href="stanfordyoutube.html#subgraph-level-example-traffic-prediction" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>node = road segment</li>
+<li>edge = connectivity between road segments</li>
+<li>predict journey time</li>
+<li>used in google maps</li>
+</ul>
+</div>
+<div id="graph-level-example-drug-antibiotic-discovery" class="section level5 unnumbered hasAnchor">
+<h5>graph-level example: drug / antibiotic discovery<a href="stanfordyoutube.html#graph-level-example-drug-antibiotic-discovery" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>nodes = atoms</li>
+<li>edges = chemical bonds</li>
+<li>predict which molecules should be prioritised for testing</li>
+</ul>
+</div>
+<div id="graph-level-example-2-physics-simulation" class="section level5 unnumbered hasAnchor">
+<h5>graph-level example 2: physics simulation<a href="stanfordyoutube.html#graph-level-example-2-physics-simulation" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>nodes = particles</li>
+<li>edge = interactions between particles</li>
+<li>predict positions of particles in future given current positions and velocities</li>
+</ul>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
 </div>
-<div id="choice-of-graph-representation" class="section level4 unnumbered hasAnchor">
-<h4>1.3 Choice of Graph Representation<a href="stanfordyoutube.html#choice-of-graph-representation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="blah" class="section level4 unnumbered hasAnchor">
+<h4>1.3 Choice of Graph Representation<a href="stanfordyoutube.html#blah" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=P-m1Qv6-8cI&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=4">video</a></p>
+<div id="components-of-a-network" class="section level5 unnumbered hasAnchor">
+<h5>Components of a network<a href="stanfordyoutube.html#components-of-a-network" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math inline">\(N\)</span> = nodes / vertices / objects<br />
+<span class="math inline">\(E\)</span> = edges / links<br />
+<span class="math inline">\(G(N, E)\)</span> = graph / network</p>
+</div>
+<div id="directed-vs-undirected" class="section level5 unnumbered hasAnchor">
+<h5>Directed vs Undirected<a href="stanfordyoutube.html#directed-vs-undirected" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>undirected
+<ul>
+<li>collaborations</li>
+<li>friendships</li>
+</ul></li>
+<li>directed
+<ul>
+<li>phone calls</li>
+<li>financial transactons</li>
+<li>following on Twitter</li>
+</ul></li>
+</ul>
+</div>
+<div id="node-degrees" class="section level5 unnumbered hasAnchor">
+<h5>Node degrees<a href="stanfordyoutube.html#node-degrees" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><span class="math inline">\(k_i\)</span> = the number of edges adjacet to node <span class="math inline">\(i\)</span></p>
+<ul>
+<li>undirected</li>
+</ul>
+<p><span class="math display">\[\overline{k} = \frac{1}{N}\sum_{i=i}^Nk_i=\frac{2E}{N}\]</span></p>
+<ul>
+<li>directed</li>
+</ul>
+<p><span class="math inline">\(k_i^{in}\)</span> = the in-degree number of edges adjacet to node <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(k_i^{out}\)</span> = the out-degree number of edges adjacet to node <span class="math inline">\(i\)</span></p>
+<p><span class="math display">\[\overline{k}=\frac{E}{N}\]</span>
+<span class="math display">\[\overline{k^{in}}=\overline{k^{out}}\]</span></p>
+</div>
+<div id="bipartite-graphs" class="section level5 unnumbered hasAnchor">
+<h5>Bipartite graphs<a href="stanfordyoutube.html#bipartite-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>nodes can be divided into two partitions</li>
+<li>e.g. 
+<ul>
+<li>authors to papers they authored</li>
+<li>actors to movies they appeared in</li>
+<li>recipes to ingredients they contain</li>
+</ul></li>
+<li>can project connections between nodes in one partition e.g. if they share at least one node in common from the other partition</li>
+</ul>
+</div>
+<div id="adjacency-matrics" class="section level5 unnumbered hasAnchor">
+<h5>Adjacency matrics<a href="stanfordyoutube.html#adjacency-matrics" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li><span class="math inline">\(N\)</span> by <span class="math inline">\(N\)</span> matrix with elements <span class="math inline">\(A_{ij}\)</span></li>
+<li><span class="math inline">\(A_{ij}\)</span> = 1 if node <span class="math inline">\(i\)</span> connected to node <span class="math inline">\(j\)</span>, zero otherwise</li>
+<li>undirected graphs have symmetrical adjacency matrices (directed graphs might)</li>
+<li>very sparse</li>
+</ul>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
+</div>
 </div>
 <div id="traditional-feature-based-methods-node" class="section level4 unnumbered hasAnchor">
 <h4>2.1 Traditional Feature-based Methods: Node<a href="stanfordyoutube.html#traditional-feature-based-methods-node" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="traditional-feature-based-methods-link" class="section level4 unnumbered hasAnchor">
+<h4>2.2 Traditional Feature-based Methods: Link<a href="stanfordyoutube.html#traditional-feature-based-methods-link" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=4dVwlE9jYxY&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=6">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="traditional-feature-based-methods-graph" class="section level4 unnumbered hasAnchor">
+<h4>2.3 Traditional Feature-based Methods: Graph<a href="stanfordyoutube.html#traditional-feature-based-methods-graph" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=buzsHTa4Hgs&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=7">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="node-embeddings" class="section level4 unnumbered hasAnchor">
+<h4>3.1 Node Embeddings<a href="stanfordyoutube.html#node-embeddings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=rMq21iY61SE&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=8">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section" class="section level4" number="1.0.0.1">
+<h4><span class="header-section-number">1.0.0.1</span> </h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section-1" class="section level4" number="1.0.0.2">
+<h4><span class="header-section-number">1.0.0.2</span> </h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section-2" class="section level4" number="1.0.0.3">
+<h4><span class="header-section-number">1.0.0.3</span> </h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section-3" class="section level4" number="1.0.0.4">
+<h4><span class="header-section-number">1.0.0.4</span> </h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 
 </div>
 </div>
@@ -265,6 +421,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
