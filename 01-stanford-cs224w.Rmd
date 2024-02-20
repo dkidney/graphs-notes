@@ -233,20 +233,16 @@ Link to [video](https://www.youtube.com/watch?v=4dVwlE9jYxY&list=PLoROMvodv4rPLK
 
 ##### Link-level features {-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* distance-based features - does not capture the degree of neighbourhood overlap  
+* local neighbourhood overlap - the number of neighbouring nodes shared between two nodes
+  * common neighbours
+  * jaccard's coeffieient
+  * adamic-adar index
+* global neighbourhood overlap  
+  * katz index - count the number of paths of all lengths between a pair of nodes
+    * $\bf{P}^{(\bf{K})}_{\bf{u}\bf{v}}=$ number of paths of length $\bf{K}$ between $\bf{u}$ and $\bf{v}$
+    * $\bf{P}^{(\bf{K})}=\bf{A}^{\bf{k}}$
+    * Sum over all possible path lengths to get the index (where lengths are discounted exponentially)
 
 [back to contents](#contents)
 
@@ -256,6 +252,19 @@ Link to [video](https://www.youtube.com/watch?v=4dVwlE9jYxY&list=PLoROMvodv4rPLK
 
 Link to [video](https://www.youtube.com/watch?v=buzsHTa4Hgs&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=7)
 
+* want features that characterise the stucture of an entire graph
+
+##### Graph-level features {-}
+
+* kernel methods $K(G_1, G_2)$
+  * once the kernel is defined, can use ML models (e.g. kernel SVM) to make predictions
+  * graph kernels measure similarity between two graphs
+  * key idea: bag-of-words representation of a graph, where 'words' can be:
+    * nodes (too simplistic)
+    * node degrees 
+    * graphlets - i.e. graphlet kernel (don't need to be rooted or connected in this case) very expensive to compute
+    * Weisfeiler-Lehman kernel is more computationally efficient
+
 [back to contents](#contents)
 
 ***
@@ -264,11 +273,38 @@ Link to [video](https://www.youtube.com/watch?v=buzsHTa4Hgs&list=PLoROMvodv4rPLK
 
 Link to [video](https://www.youtube.com/watch?v=rMq21iY61SE&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=8)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [back to contents](#contents)
 
 ***
 
-####
+#### {-}
 
 Link to [video]()
 
@@ -276,7 +312,7 @@ Link to [video]()
 
 ***
 
-####
+#### {-}
 
 Link to [video]()
 
@@ -284,7 +320,7 @@ Link to [video]()
 
 ***
 
-####
+#### {-}
 
 Link to [video]()
 
@@ -292,7 +328,7 @@ Link to [video]()
 
 ***
 
-####
+#### {-}
 
 Link to [video]()
 

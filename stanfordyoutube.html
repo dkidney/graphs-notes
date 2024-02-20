@@ -375,6 +375,25 @@
 </ul>
 <div id="link-level-features" class="section level5 unnumbered hasAnchor">
 <h5>Link-level features<a href="stanfordyoutube.html#link-level-features" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>distance-based features - does not capture the degree of neighbourhood overlap<br />
+</li>
+<li>local neighbourhood overlap - the number of neighbouring nodes shared between two nodes
+<ul>
+<li>common neighbours</li>
+<li>jaccard’s coeffieient</li>
+<li>adamic-adar index</li>
+</ul></li>
+<li>global neighbourhood overlap
+<ul>
+<li>katz index - count the number of paths of all lengths between a pair of nodes
+<ul>
+<li><span class="math inline">\(\bf{P}^{(\bf{K})}_{\bf{u}\bf{v}}=\)</span> number of paths of length <span class="math inline">\(\bf{K}\)</span> between <span class="math inline">\(\bf{u}\)</span> and <span class="math inline">\(\bf{v}\)</span></li>
+<li><span class="math inline">\(\bf{P}^{(\bf{K})}=\bf{A}^{\bf{k}}\)</span></li>
+<li>Sum over all possible path lengths to get the index (where lengths are discounted exponentially)</li>
+</ul></li>
+</ul></li>
+</ul>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
@@ -382,8 +401,28 @@
 <div id="traditional-feature-based-methods-graph" class="section level4 unnumbered hasAnchor">
 <h4>2.3 Traditional Feature-based Methods: Graph<a href="stanfordyoutube.html#traditional-feature-based-methods-graph" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=buzsHTa4Hgs&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=7">video</a></p>
+<ul>
+<li>want features that characterise the stucture of an entire graph</li>
+</ul>
+<div id="graph-level-features" class="section level5 unnumbered hasAnchor">
+<h5>Graph-level features<a href="stanfordyoutube.html#graph-level-features" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>kernel methods <span class="math inline">\(K(G_1, G_2)\)</span>
+<ul>
+<li>once the kernel is defined, can use ML models (e.g. kernel SVM) to make predictions</li>
+<li>graph kernels measure similarity between two graphs</li>
+<li>key idea: bag-of-words representation of a graph, where ‘words’ can be:
+<ul>
+<li>nodes (too simplistic)</li>
+<li>node degrees</li>
+<li>graphlets - i.e. graphlet kernel (don’t need to be rooted or connected in this case) very expensive to compute</li>
+<li>Weisfeiler-Lehman kernel is more computationally efficient</li>
+</ul></li>
+</ul></li>
+</ul>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
+</div>
 </div>
 <div id="node-embeddings" class="section level4 unnumbered hasAnchor">
 <h4>3.1 Node Embeddings<a href="stanfordyoutube.html#node-embeddings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -391,26 +430,26 @@
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
-<div id="section" class="section level4" number="1.0.0.1">
-<h4><span class="header-section-number">1.0.0.1</span> </h4>
+<div id="section" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
 <p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
-<div id="section-1" class="section level4" number="1.0.0.2">
-<h4><span class="header-section-number">1.0.0.2</span> </h4>
+<div id="section-1" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
 <p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
-<div id="section-2" class="section level4" number="1.0.0.3">
-<h4><span class="header-section-number">1.0.0.3</span> </h4>
+<div id="section-2" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
 <p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
-<div id="section-3" class="section level4" number="1.0.0.4">
-<h4><span class="header-section-number">1.0.0.4</span> </h4>
+<div id="section-3" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
 <p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 
