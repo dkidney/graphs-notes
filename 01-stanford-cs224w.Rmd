@@ -7,6 +7,10 @@ Link to [playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhP
 [1.1 Why Graphs]  
 [1.2 Applications of Graph ML]  
 [1.3 Choice of Graph Representation]  
+[2.1 Traditional Feature-based Methods: Node]  
+[2.2 Traditional Feature-based Methods: Link]  
+[2.3 Traditional Feature-based Methods: Graph]  
+[3.1 Node Embeddings]  
 
 [blah](#blah)
 
@@ -129,7 +133,7 @@ $N$ = nodes / vertices / objects
 $E$ = edges / links  
 $G(N, E)$ = graph / network  
 
-##### Directed vs Undirected {-}
+##### Types {-}
 
 * undirected
   * collaborations
@@ -142,7 +146,7 @@ $G(N, E)$ = graph / network
 
 ##### Node degrees {-}
 
-$k_i$ = the number of edges adjacet to node $i$
+$k_i$ = number of edges adjacet to node $i$
 
 * undirected
 
@@ -150,27 +154,49 @@ $$\overline{k} = \frac{1}{N}\sum_{i=i}^Nk_i=\frac{2E}{N}$$
 
 * directed
 
-$k_i^{in}$ = the in-degree number of edges adjacet to node $i$  
-$k_i^{out}$ = the out-degree number of edges adjacet to node $i$  
+$k_i^{in}$ = in-degree number of edges adjacet to node $i$  
+$k_i^{out}$ = out-degree number of edges adjacet to node $i$  
 
 $$\overline{k}=\frac{E}{N}$$
 $$\overline{k^{in}}=\overline{k^{out}}$$
 
-##### Bipartite graphs {-}
+* bipartite
+  * nodes can be divided into two partitions
+  * e.g.  
+    * authors to papers they authored
+    * actors to movies they appeared in
+    * recipes to ingredients they contain
+  * can project connections between nodes in one partition e.g. if they share at least one node in common from the other partition
 
-* nodes can be divided into two partitions
-* e.g. 
-  * authors to papers they authored
-  * actors to movies they appeared in
-  * recipes to ingredients they contain
-* can project connections between nodes in one partition e.g. if they share at least one node in common from the other partition
+##### Representations {-}
 
-##### Adjacency matrics {-}
-
-* $N$ by $N$ matrix with elements $A_{ij}$
-* $A_{ij}$ = 1 if node $i$ connected to node $j$, zero otherwise
+**Adjacency matrix**  
+* $N$ by $N$ matrix with elements $A_{ij}$  
+* $A_{ij}$ = 1 if node $i$ connected to node $j$, zero otherwise  
+* self-loops on the diagonal
 * undirected graphs have symmetrical adjacency matrices (directed graphs might)
-* very sparse
+* very sparse  
+
+**List of edges**  
+* harder to do computations on graph  
+  
+**Adjaceny list**  
+* for every node you store a list of its neighbours
+* easier to work with if netwrok is large / sparse  
+* can quickly retrieve all neighbours of a given node  
+
+##### Attributes / properties {-}
+
+* weight - can be represented by the $A_{ij}$ in the adjacency matrix
+* ranking
+* type
+* sign
+* number of friends in common (i.e. properties depending on the structure of the rest of the graph)
+
+##### Connectivity {-}
+
+* disconnected graph is made up of two or more **connected components**
+* adjacency matrix can be written as a block-diagonal matrix
 
 [back to contents](#contents)
 

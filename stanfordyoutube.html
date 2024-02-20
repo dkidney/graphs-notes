@@ -109,7 +109,11 @@
 <h4>Contents<a href="stanfordyoutube.html#contents" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><a href="stanfordyoutube.html#why-graphs">1.1 Why Graphs</a><br />
 <a href="stanfordyoutube.html#applications-of-graph-ml">1.2 Applications of Graph ML</a><br />
-<a href="stanfordyoutube.html#blah">1.3 Choice of Graph Representation</a></p>
+<a href="stanfordyoutube.html#blah">1.3 Choice of Graph Representation</a><br />
+<a href="stanfordyoutube.html#traditional-feature-based-methods-node">2.1 Traditional Feature-based Methods: Node</a><br />
+<a href="stanfordyoutube.html#traditional-feature-based-methods-link">2.2 Traditional Feature-based Methods: Link</a><br />
+<a href="stanfordyoutube.html#traditional-feature-based-methods-graph">2.3 Traditional Feature-based Methods: Graph</a><br />
+<a href="stanfordyoutube.html#node-embeddings">3.1 Node Embeddings</a></p>
 <p><a href="stanfordyoutube.html#blah">blah</a></p>
 <hr />
 </div>
@@ -256,8 +260,8 @@
 <span class="math inline">\(E\)</span> = edges / links<br />
 <span class="math inline">\(G(N, E)\)</span> = graph / network</p>
 </div>
-<div id="directed-vs-undirected" class="section level5 unnumbered hasAnchor">
-<h5>Directed vs Undirected<a href="stanfordyoutube.html#directed-vs-undirected" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="types" class="section level5 unnumbered hasAnchor">
+<h5>Types<a href="stanfordyoutube.html#types" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <ul>
 <li>undirected
 <ul>
@@ -274,7 +278,7 @@
 </div>
 <div id="node-degrees" class="section level5 unnumbered hasAnchor">
 <h5>Node degrees<a href="stanfordyoutube.html#node-degrees" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p><span class="math inline">\(k_i\)</span> = the number of edges adjacet to node <span class="math inline">\(i\)</span></p>
+<p><span class="math inline">\(k_i\)</span> = number of edges adjacet to node <span class="math inline">\(i\)</span></p>
 <ul>
 <li>undirected</li>
 </ul>
@@ -282,13 +286,12 @@
 <ul>
 <li>directed</li>
 </ul>
-<p><span class="math inline">\(k_i^{in}\)</span> = the in-degree number of edges adjacet to node <span class="math inline">\(i\)</span><br />
-<span class="math inline">\(k_i^{out}\)</span> = the out-degree number of edges adjacet to node <span class="math inline">\(i\)</span></p>
+<p><span class="math inline">\(k_i^{in}\)</span> = in-degree number of edges adjacet to node <span class="math inline">\(i\)</span><br />
+<span class="math inline">\(k_i^{out}\)</span> = out-degree number of edges adjacet to node <span class="math inline">\(i\)</span></p>
 <p><span class="math display">\[\overline{k}=\frac{E}{N}\]</span>
 <span class="math display">\[\overline{k^{in}}=\overline{k^{out}}\]</span></p>
-</div>
-<div id="bipartite-graphs" class="section level5 unnumbered hasAnchor">
-<h5>Bipartite graphs<a href="stanfordyoutube.html#bipartite-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>bipartite
 <ul>
 <li>nodes can be divided into two partitions</li>
 <li>e.g. 
@@ -298,15 +301,39 @@
 <li>recipes to ingredients they contain</li>
 </ul></li>
 <li>can project connections between nodes in one partition e.g. if they share at least one node in common from the other partition</li>
+</ul></li>
 </ul>
 </div>
-<div id="adjacency-matrics" class="section level5 unnumbered hasAnchor">
-<h5>Adjacency matrics<a href="stanfordyoutube.html#adjacency-matrics" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="representations" class="section level5 unnumbered hasAnchor">
+<h5>Representations<a href="stanfordyoutube.html#representations" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Adjacency matrix</strong><br />
+* <span class="math inline">\(N\)</span> by <span class="math inline">\(N\)</span> matrix with elements <span class="math inline">\(A_{ij}\)</span><br />
+* <span class="math inline">\(A_{ij}\)</span> = 1 if node <span class="math inline">\(i\)</span> connected to node <span class="math inline">\(j\)</span>, zero otherwise<br />
+* self-loops on the diagonal
+* undirected graphs have symmetrical adjacency matrices (directed graphs might)
+* very sparse</p>
+<p><strong>List of edges</strong><br />
+* harder to do computations on graph</p>
+<p><strong>Adjaceny list</strong><br />
+* for every node you store a list of its neighbours
+* easier to work with if netwrok is large / sparse<br />
+* can quickly retrieve all neighbours of a given node</p>
+</div>
+<div id="attributes-properties" class="section level5 unnumbered hasAnchor">
+<h5>Attributes / properties<a href="stanfordyoutube.html#attributes-properties" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <ul>
-<li><span class="math inline">\(N\)</span> by <span class="math inline">\(N\)</span> matrix with elements <span class="math inline">\(A_{ij}\)</span></li>
-<li><span class="math inline">\(A_{ij}\)</span> = 1 if node <span class="math inline">\(i\)</span> connected to node <span class="math inline">\(j\)</span>, zero otherwise</li>
-<li>undirected graphs have symmetrical adjacency matrices (directed graphs might)</li>
-<li>very sparse</li>
+<li>weight - can be represented by the <span class="math inline">\(A_{ij}\)</span> in the adjacency matrix</li>
+<li>ranking</li>
+<li>type</li>
+<li>sign</li>
+<li>number of friends in common (i.e. properties depending on the structure of the rest of the graph)</li>
+</ul>
+</div>
+<div id="connectivity" class="section level5 unnumbered hasAnchor">
+<h5>Connectivity<a href="stanfordyoutube.html#connectivity" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>disconnected graph is made up of two or more <strong>connected components</strong></li>
+<li>adjacency matrix can be written as a block-diagonal matrix</li>
 </ul>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
