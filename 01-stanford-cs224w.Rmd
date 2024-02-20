@@ -170,7 +170,7 @@ $$\overline{k^{in}}=\overline{k^{out}}$$
 
 ##### Representations {-}
 
-**Adjacency matrix**  
+**Adjacency matrix** $\bf{A}$    
 * $N$ by $N$ matrix with elements $A_{ij}$  
 * $A_{ij}$ = 1 if node $i$ connected to node $j$, zero otherwise  
 * self-loops on the diagonal
@@ -204,7 +204,22 @@ $$\overline{k^{in}}=\overline{k^{out}}$$
 
 #### 2.1 Traditional Feature-based Methods: Node {-}
 
-Link to [video]()
+Link to [video](https://www.youtube.com/watch?v=3IS7UhNMQ3U&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=4&pp=iAQB)
+
+* task is to predict node labels
+
+##### Node-level features {-}
+
+* node degree - treats all neighbouring nodes equally  
+* node centrality - takes node importance into account - e.g.  
+  * eigenvector centrality - uses eigenvector associated with max eigenvalue of $\bf{A}$
+  * betweenness centrality - important nodes lie on many shortest paths between other nodes
+  * closeness centrality - important nodes have snall shortest path lengths to all other nodes
+* clustering coefficient - measures how connected the neighburing nodes are (effectively the number of triangular graphlets touching the node)
+* graphlet degree - extends the idea of clustering coefficient - counts number of pre-specfied subgraphs touching the node
+  * graphlet = rooted connected non-isomorphic subgraph (lots of different examples)
+  * provides a measure of a node's local network topology
+
 
 [back to contents](#contents)
 
@@ -213,6 +228,25 @@ Link to [video]()
 #### 2.2 Traditional Feature-based Methods: Link {-}
 
 Link to [video](https://www.youtube.com/watch?v=4dVwlE9jYxY&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=6)
+
+* task is to predict new links
+
+##### Link-level features {-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [back to contents](#contents)
 

@@ -306,7 +306,7 @@
 </div>
 <div id="representations" class="section level5 unnumbered hasAnchor">
 <h5>Representations<a href="stanfordyoutube.html#representations" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<p><strong>Adjacency matrix</strong><br />
+<p><strong>Adjacency matrix</strong> <span class="math inline">\(\bf{A}\)</span><br />
 * <span class="math inline">\(N\)</span> by <span class="math inline">\(N\)</span> matrix with elements <span class="math inline">\(A_{ij}\)</span><br />
 * <span class="math inline">\(A_{ij}\)</span> = 1 if node <span class="math inline">\(i\)</span> connected to node <span class="math inline">\(j\)</span>, zero otherwise<br />
 * self-loops on the diagonal
@@ -341,15 +341,43 @@
 </div>
 <div id="traditional-feature-based-methods-node" class="section level4 unnumbered hasAnchor">
 <h4>2.1 Traditional Feature-based Methods: Node<a href="stanfordyoutube.html#traditional-feature-based-methods-node" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Link to <a href="">video</a></p>
+<p>Link to <a href="https://www.youtube.com/watch?v=3IS7UhNMQ3U&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=4&amp;pp=iAQB">video</a></p>
+<ul>
+<li>task is to predict node labels</li>
+</ul>
+<div id="node-level-features" class="section level5 unnumbered hasAnchor">
+<h5>Node-level features<a href="stanfordyoutube.html#node-level-features" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>node degree - treats all neighbouring nodes equally<br />
+</li>
+<li>node centrality - takes node importance into account - e.g. 
+<ul>
+<li>eigenvector centrality - uses eigenvector associated with max eigenvalue of <span class="math inline">\(\bf{A}\)</span></li>
+<li>betweenness centrality - important nodes lie on many shortest paths between other nodes</li>
+<li>closeness centrality - important nodes have snall shortest path lengths to all other nodes</li>
+</ul></li>
+<li>clustering coefficient - measures how connected the neighburing nodes are (effectively the number of triangular graphlets touching the node)</li>
+<li>graphlet degree - extends the idea of clustering coefficient - counts number of pre-specfied subgraphs touching the node
+<ul>
+<li>graphlet = rooted connected non-isomorphic subgraph (lots of different examples)</li>
+<li>provides a measure of a node’s local network topology</li>
+</ul></li>
+</ul>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
+</div>
 </div>
 <div id="traditional-feature-based-methods-link" class="section level4 unnumbered hasAnchor">
 <h4>2.2 Traditional Feature-based Methods: Link<a href="stanfordyoutube.html#traditional-feature-based-methods-link" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=4dVwlE9jYxY&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=6">video</a></p>
+<ul>
+<li>task is to predict new links</li>
+</ul>
+<div id="link-level-features" class="section level5 unnumbered hasAnchor">
+<h5>Link-level features<a href="stanfordyoutube.html#link-level-features" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
+</div>
 </div>
 <div id="traditional-feature-based-methods-graph" class="section level4 unnumbered hasAnchor">
 <h4>2.3 Traditional Feature-based Methods: Graph<a href="stanfordyoutube.html#traditional-feature-based-methods-graph" class="anchor-section" aria-label="Anchor link to header"></a></h4>
