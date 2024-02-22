@@ -11,12 +11,14 @@ Link to [playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhP
 [2.2 Traditional Feature-based Methods: Link]  
 [2.3 Traditional Feature-based Methods: Graph]  
 [3.1 Node Embeddings]  
+[3.2 Random Walk Approaches for Node Embeddings]  
+[3.3 Embedding Entire Graphs]  
 
 [blah](#blah)
 
 ***
 
-#### 1.1 Why Graphs {-}
+#### 1.1 Why Graphs {-#blah}
 
 Link to [video](https://www.youtube.com/watch?v=JAB_plj2rbA&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=2)
 
@@ -123,7 +125,7 @@ Link to [video](https://www.youtube.com/watch?v=aBHC6xzx9YI&list=PLoROMvodv4rPLK
 
 ***
 
-#### 1.3 Choice of Graph Representation {-#blah}
+#### 1.3 Choice of Graph Representation {-}
 
 Link to [video](https://www.youtube.com/watch?v=P-m1Qv6-8cI&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=4)
 
@@ -273,48 +275,93 @@ Link to [video](https://www.youtube.com/watch?v=buzsHTa4Hgs&list=PLoROMvodv4rPLK
 
 Link to [video](https://www.youtube.com/watch?v=rMq21iY61SE&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=8)
 
+* goal is to encode nodes such that similarity in the embedding space approximates similarity in the graph
+* **encoder** maps from nodes to embeddings - maps each node to a d-dimensional vector
+* **decoder** maps from embeddings to similarity scores (e.g. dot product between node embeddings)
+* first need to define a similarity function = measure of similarity in the original network
+  * lots of ways to define similiarity between nodes (linked, shared neighbours, etc.)
+* then need to optimize the parameters of the encoder such that similarity function is as close as possible to similarity as measured by the embedding decoder
 
+##### Shallow encoding {-}
 
+* simplest approach
+* not very scalable (too many parameters)
+* encoder is just an embedding lookup of matrix $\bf{Z}$ (which must be learned)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$$ENC(v) = \bf{z}_v = \bf{Z} \cdot v$$
+where,  
+$\bf{Z}$ is a matrix where each column is a node and each row is a dimension of the embedding space - each element represents a parameter which must be optimized
+$\bf{v}$ is an indicator vector with a 1 in the column indicating node $v$
 
 [back to contents](#contents)
 
 ***
 
-#### {-}
+#### 3.2 Random Walk Approaches for Node Embeddings {-}
 
-Link to [video]()
+Link to [video](https://www.youtube.com/watch?v=Xv0wRy66Big&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=8)
+
+##### DeepWalk {-}
+
+* want nodes that are visited in the same random walk to be close together in the embedding space
+
+* want to choose parameters of $\bf{Z}$ which maximise the probability that nodes within a given node's neighbourhood are visited on a random walk from that node
+
+###### Log-likelihood objective {-}
+
+$$= \sum_{u \in V} \log P\left( N_R(u) \; | \; \bf{z}_u \right)$$
+$$=\sum_{u \in V} \sum_{v \in N_R(u)}-\log\left(P(v\;|\;\bf{z}_u)\right)$$
+
+$$=\sum_{u \in V} \sum_{v \in N_R(u)}-\log\left(\frac{\exp(\bf{z}_u^T\bf{z}_v)}{\sum_{n \in v} \exp(\bf{z}_u^T\bf{z}_n)}\right)$$
+
+where,  
+
+$P\left(v \; | \; \bf{z}_u\right)$ = probability of visiting node $v$ on random walks starting from node $u$.
+
+$N_R(u)$ = neighbourhood of node $u$ by random walk strategy $R$ (i.e. random walk neighbourhood)  
+
+###### Negative sampling {-}
+
+* rather than all the nodes, sum over a random subset of $k$ nodes  
+* sampling probability of each node being proportional to its degree (in practice use $k$ = 5 to 20)  
+
+###### Stochastic gradient descent {-}
+
+* used to minimise the objective function
+
+* like gradient descent, but instead of evaluating gradient over all examples evaluate over a random sample of examples (i.e. a stochastic approximation)
+
+##### node2vec {-}
+
+* flexible notion of network neighbourhood of node $u$ leads to rich embeddings
+
+* use flexible, biased random walks that can trade off between local and global views of the network - i.e. depth-first search (DFS) vs breadth-first search (BFS)
+
+* a biased, second-order random walk
+
+* two parameters used to gend=erate $N_R(u)$
+
+1. $p$ = return parameter (return back to the previous node)
+
+2. $q$ = in-out parameter ('ratio' of BFS vs DFS)
+
+###### algorithm {-}
+
+  * compute random walk probabilities
+  * simulate $r$ random walks of length $l$ starting from each node $u$
+  * optimize the node2vec objective using stochastic gradient descent
 
 [back to contents](#contents)
 
 ***
 
-#### {-}
+#### 3.3 Embedding Entire Graphs {-}
 
-Link to [video]()
+Link to [video](https://www.youtube.com/watch?v=eliMLfJeu7A&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=9)
+
+
+
+
 
 [back to contents](#contents)
 

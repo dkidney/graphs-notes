@@ -23,7 +23,7 @@
 <meta name="author" content="Darren Kidney" />
 
 
-<meta name="date" content="2024-02-20" />
+<meta name="date" content="2024-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -107,18 +107,20 @@
 <p>Link to <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn">playlist</a></p>
 <div id="contents" class="section level4 unnumbered hasAnchor">
 <h4>Contents<a href="stanfordyoutube.html#contents" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><a href="stanfordyoutube.html#why-graphs">1.1 Why Graphs</a><br />
+<p><a href="stanfordyoutube.html#blah">1.1 Why Graphs</a><br />
 <a href="stanfordyoutube.html#applications-of-graph-ml">1.2 Applications of Graph ML</a><br />
-<a href="stanfordyoutube.html#blah">1.3 Choice of Graph Representation</a><br />
+<a href="stanfordyoutube.html#choice-of-graph-representation">1.3 Choice of Graph Representation</a><br />
 <a href="stanfordyoutube.html#traditional-feature-based-methods-node">2.1 Traditional Feature-based Methods: Node</a><br />
 <a href="stanfordyoutube.html#traditional-feature-based-methods-link">2.2 Traditional Feature-based Methods: Link</a><br />
 <a href="stanfordyoutube.html#traditional-feature-based-methods-graph">2.3 Traditional Feature-based Methods: Graph</a><br />
-<a href="stanfordyoutube.html#node-embeddings">3.1 Node Embeddings</a></p>
+<a href="stanfordyoutube.html#node-embeddings">3.1 Node Embeddings</a><br />
+<a href="stanfordyoutube.html#random-walk-approaches-for-node-embeddings">3.2 Random Walk Approaches for Node Embeddings</a><br />
+<a href="stanfordyoutube.html#embedding-entire-graphs">3.3 Embedding Entire Graphs</a></p>
 <p><a href="stanfordyoutube.html#blah">blah</a></p>
 <hr />
 </div>
-<div id="why-graphs" class="section level4 unnumbered hasAnchor">
-<h4>1.1 Why Graphs<a href="stanfordyoutube.html#why-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="blah" class="section level4 unnumbered hasAnchor">
+<h4>1.1 Why Graphs<a href="stanfordyoutube.html#blah" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=JAB_plj2rbA&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=2">video</a></p>
 <ul>
 <li>Many types of data that can naturally be represented as graphs</li>
@@ -251,8 +253,8 @@
 <hr />
 </div>
 </div>
-<div id="blah" class="section level4 unnumbered hasAnchor">
-<h4>1.3 Choice of Graph Representation<a href="stanfordyoutube.html#blah" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="choice-of-graph-representation" class="section level4 unnumbered hasAnchor">
+<h4>1.3 Choice of Graph Representation<a href="stanfordyoutube.html#choice-of-graph-representation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=P-m1Qv6-8cI&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=4">video</a></p>
 <div id="components-of-a-network" class="section level5 unnumbered hasAnchor">
 <h5>Components of a network<a href="stanfordyoutube.html#components-of-a-network" class="anchor-section" aria-label="Anchor link to header"></a></h5>
@@ -427,6 +429,92 @@
 <div id="node-embeddings" class="section level4 unnumbered hasAnchor">
 <h4>3.1 Node Embeddings<a href="stanfordyoutube.html#node-embeddings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=rMq21iY61SE&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=8">video</a></p>
+<ul>
+<li>goal is to encode nodes such that similarity in the embedding space approximates similarity in the graph</li>
+<li><strong>encoder</strong> maps from nodes to embeddings - maps each node to a d-dimensional vector</li>
+<li><strong>decoder</strong> maps from embeddings to similarity scores (e.g. dot product between node embeddings)</li>
+<li>first need to define a similarity function = measure of similarity in the original network
+<ul>
+<li>lots of ways to define similiarity between nodes (linked, shared neighbours, etc.)</li>
+</ul></li>
+<li>then need to optimize the parameters of the encoder such that similarity function is as close as possible to similarity as measured by the embedding decoder</li>
+</ul>
+<div id="shallow-encoding" class="section level5 unnumbered hasAnchor">
+<h5>Shallow encoding<a href="stanfordyoutube.html#shallow-encoding" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>simplest approach</li>
+<li>not very scalable (too many parameters)</li>
+<li>encoder is just an embedding lookup of matrix <span class="math inline">\(\bf{Z}\)</span> (which must be learned)</li>
+</ul>
+<p><span class="math display">\[ENC(v) = \bf{z}_v = \bf{Z} \cdot v\]</span>
+where,<br />
+<span class="math inline">\(\bf{Z}\)</span> is a matrix where each column is a node and each row is a dimension of the embedding space - each element represents a parameter which must be optimized
+<span class="math inline">\(\bf{v}\)</span> is an indicator vector with a 1 in the column indicating node <span class="math inline">\(v\)</span></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+</div>
+<div id="random-walk-approaches-for-node-embeddings" class="section level4 unnumbered hasAnchor">
+<h4>3.2 Random Walk Approaches for Node Embeddings<a href="stanfordyoutube.html#random-walk-approaches-for-node-embeddings" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=Xv0wRy66Big&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=8">video</a></p>
+<div id="deepwalk" class="section level5 unnumbered hasAnchor">
+<h5>DeepWalk<a href="stanfordyoutube.html#deepwalk" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li><p>want nodes that are visited in the same random walk to be close together in the embedding space</p></li>
+<li><p>want to choose parameters of <span class="math inline">\(\bf{Z}\)</span> which maximise the probability that nodes within a given node’s neighbourhood are visited on a random walk from that node</p></li>
+</ul>
+<div id="log-likelihood-objective" class="section level6 unnumbered hasAnchor">
+<h6>Log-likelihood objective<a href="stanfordyoutube.html#log-likelihood-objective" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<p><span class="math display">\[= \sum_{u \in V} \log P\left( N_R(u) \; | \; \bf{z}_u \right)\]</span>
+<span class="math display">\[=\sum_{u \in V} \sum_{v \in N_R(u)}-\log\left(P(v\;|\;\bf{z}_u)\right)\]</span></p>
+<p><span class="math display">\[=\sum_{u \in V} \sum_{v \in N_R(u)}-\log\left(\frac{\exp(\bf{z}_u^T\bf{z}_v)}{\sum_{n \in v} \exp(\bf{z}_u^T\bf{z}_n)}\right)\]</span></p>
+<p>where,</p>
+<p><span class="math inline">\(P\left(v \; | \; \bf{z}_u\right)\)</span> = probability of visiting node <span class="math inline">\(v\)</span> on random walks starting from node <span class="math inline">\(u\)</span>.</p>
+<p><span class="math inline">\(N_R(u)\)</span> = neighbourhood of node <span class="math inline">\(u\)</span> by random walk strategy <span class="math inline">\(R\)</span> (i.e. random walk neighbourhood)</p>
+</div>
+<div id="negative-sampling" class="section level6 unnumbered hasAnchor">
+<h6>Negative sampling<a href="stanfordyoutube.html#negative-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<ul>
+<li>rather than all the nodes, sum over a random subset of <span class="math inline">\(k\)</span> nodes<br />
+</li>
+<li>sampling probability of each node being proportional to its degree (in practice use <span class="math inline">\(k\)</span> = 5 to 20)</li>
+</ul>
+</div>
+<div id="stochastic-gradient-descent" class="section level6 unnumbered hasAnchor">
+<h6>Stochastic gradient descent<a href="stanfordyoutube.html#stochastic-gradient-descent" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<ul>
+<li><p>used to minimise the objective function</p></li>
+<li><p>like gradient descent, but instead of evaluating gradient over all examples evaluate over a random sample of examples (i.e. a stochastic approximation)</p></li>
+</ul>
+</div>
+</div>
+<div id="node2vec" class="section level5 unnumbered hasAnchor">
+<h5>node2vec<a href="stanfordyoutube.html#node2vec" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li><p>flexible notion of network neighbourhood of node <span class="math inline">\(u\)</span> leads to rich embeddings</p></li>
+<li><p>use flexible, biased random walks that can trade off between local and global views of the network - i.e. depth-first search (DFS) vs breadth-first search (BFS)</p></li>
+<li><p>a biased, second-order random walk</p></li>
+<li><p>two parameters used to gend=erate <span class="math inline">\(N_R(u)\)</span></p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(p\)</span> = return parameter (return back to the previous node)</p></li>
+<li><p><span class="math inline">\(q\)</span> = in-out parameter (‘ratio’ of BFS vs DFS)</p></li>
+</ol>
+<div id="algorithm" class="section level6 unnumbered hasAnchor">
+<h6>algorithm<a href="stanfordyoutube.html#algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<ul>
+<li>compute random walk probabilities</li>
+<li>simulate <span class="math inline">\(r\)</span> random walks of length <span class="math inline">\(l\)</span> starting from each node <span class="math inline">\(u\)</span></li>
+<li>optimize the node2vec objective using stochastic gradient descent</li>
+</ul>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+</div>
+</div>
+<div id="embedding-entire-graphs" class="section level4 unnumbered hasAnchor">
+<h4>3.3 Embedding Entire Graphs<a href="stanfordyoutube.html#embedding-entire-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=eliMLfJeu7A&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=9">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
@@ -437,18 +525,6 @@
 <hr />
 </div>
 <div id="section-1" class="section level4 unnumbered">
-<h4 class="unnumbered"></h4>
-<p>Link to <a href="">video</a></p>
-<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
-<hr />
-</div>
-<div id="section-2" class="section level4 unnumbered">
-<h4 class="unnumbered"></h4>
-<p>Link to <a href="">video</a></p>
-<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
-<hr />
-</div>
-<div id="section-3" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 <p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
