@@ -23,7 +23,7 @@
 <meta name="author" content="Darren Kidney" />
 
 
-<meta name="date" content="2024-02-22" />
+<meta name="date" content="2024-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -80,7 +80,12 @@
 <li class="chapter" data-level="1" data-path="stanfordyoutube.html"><a href="stanfordyoutube.html"><i class="fa fa-check"></i><b>1</b> Stanford CS224W</a></li>
 <li class="chapter" data-level="2" data-path="community-detection.html"><a href="community-detection.html"><i class="fa fa-check"></i><b>2</b> Community detection</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="community-detection.html"><a href="community-detection.html#louvain"><i class="fa fa-check"></i><b>2.1</b> Louvain</a></li>
+<li class="chapter" data-level="2.1" data-path="community-detection.html"><a href="community-detection.html#resolution-limit"><i class="fa fa-check"></i><b>2.1</b> Resolution limit</a></li>
+<li class="chapter" data-level="2.2" data-path="community-detection.html"><a href="community-detection.html#algorithms"><i class="fa fa-check"></i><b>2.2</b> Algorithms</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="community-detection.html"><a href="community-detection.html#louvain"><i class="fa fa-check"></i><b>2.2.1</b> Louvain</a></li>
+<li class="chapter" data-level="2.2.2" data-path="community-detection.html"><a href="community-detection.html#leiden"><i class="fa fa-check"></i><b>2.2.2</b> Leiden</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/dkidney/graphs-notes" target="blank">Published with bookdown</a></li>
@@ -115,7 +120,11 @@
 <a href="stanfordyoutube.html#traditional-feature-based-methods-graph">2.3 Traditional Feature-based Methods: Graph</a><br />
 <a href="stanfordyoutube.html#node-embeddings">3.1 Node Embeddings</a><br />
 <a href="stanfordyoutube.html#random-walk-approaches-for-node-embeddings">3.2 Random Walk Approaches for Node Embeddings</a><br />
-<a href="stanfordyoutube.html#embedding-entire-graphs">3.3 Embedding Entire Graphs</a></p>
+<a href="stanfordyoutube.html#embedding-entire-graphs">3.3 Embedding Entire Graphs</a><br />
+<a href="stanfordyoutube.html#community-detection-in-networks">13.1 Community Detection in Networks</a><br />
+<a href="stanfordyoutube.html#network-communities">13.2 Network Communities</a><br />
+<a href="stanfordyoutube.html#louvain-algorithm">13.3 Louvain Algorithm</a><br />
+<a href="stanfordyoutube.html#detecting-overlapping-communities">13.4 Detecting Overlapping Communities</a></p>
 <p><a href="stanfordyoutube.html#blah">blah</a></p>
 <hr />
 </div>
@@ -515,6 +524,90 @@ where,<br />
 <div id="embedding-entire-graphs" class="section level4 unnumbered hasAnchor">
 <h4>3.3 Embedding Entire Graphs<a href="stanfordyoutube.html#embedding-entire-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Link to <a href="https://www.youtube.com/watch?v=eliMLfJeu7A&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=9">video</a></p>
+<ul>
+<li>goal is to embed a sub-graph or an entire graph in an embedding space</li>
+<li>e.g. identify toxic vs non-toxic molecules in the embedding space</li>
+</ul>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="community-detection-in-networks" class="section level4 unnumbered hasAnchor">
+<h4>13.1 Community Detection in Networks<a href="stanfordyoutube.html#community-detection-in-networks" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=KXi4ha79o3s&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=38">video</a></p>
+<ul>
+<li>clustering of nodes based on the structure of the network</li>
+</ul>
+<div id="social-networks-example" class="section level5 unnumbered hasAnchor">
+<h5>Social networks example<a href="stanfordyoutube.html#social-networks-example" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>socially strong short range edges within communities, redundant in terms of information access</li>
+<li>socially weak long range edges between communities, allow access to information from other parts of the graph</li>
+</ul>
+</div>
+<div id="edge-overlap" class="section level5 unnumbered hasAnchor">
+<h5>Edge overlap<a href="stanfordyoutube.html#edge-overlap" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>measures how strong an edge is structurally</li>
+<li>what is the fraction of neighbours that the edge end points have in common</li>
+<li>example using phone calls (=edges) showed positive correlation between edge overlap and the number of phone calls</li>
+</ul>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+</div>
+<div id="network-communities" class="section level4 unnumbered hasAnchor">
+<h4>13.2 Network Communities<a href="stanfordyoutube.html#network-communities" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="https://www.youtube.com/watch?v=mJQrtXZT5pw&amp;list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&amp;index=38">video</a></p>
+<ul>
+<li>communities / clusters / groups / modules
+<ul>
+<li>lots of internal connections</li>
+<li>few external connections</li>
+</ul></li>
+</ul>
+<div id="example-karate-club-dataset" class="section level5 unnumbered hasAnchor">
+<h5>Example: Karate club dataset<a href="stanfordyoutube.html#example-karate-club-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>club split in two during study</li>
+<li>the two factions show strikingly dense within-community connections</li>
+</ul>
+</div>
+<div id="modularity" class="section level5 unnumbered hasAnchor">
+<h5>Modularity<a href="stanfordyoutube.html#modularity" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<ul>
+<li>measures how well a network is partitioned into communities<br />
+</li>
+<li>for a given partitioning of the network <span class="math inline">\(s \in S\)</span>:</li>
+</ul>
+<p><span class="math display">\[Q \propto \sum_{s \in S} \left[(\# \; edges \; within \; group \; s)-(expected \; \# \; edges \; within \; group \; s)\right]\]</span></p>
+<ul>
+<li>the expected number of edges between nodes <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> of degrees <span class="math inline">\(k_i\)</span> and <span class="math inline">\(k_j\)</span> is given by</li>
+</ul>
+<p><span class="math display">\[\frac{k_ik_j}{2m}\]</span>
+where,</p>
+<p><span class="math inline">\(m\)</span> = the total number of edges in the graph<br />
+<span class="math inline">\(2m\)</span> = the total number of edge end points in the graph<br />
+<span class="math inline">\(k_i\)</span> = the number of out-going edges from node <span class="math inline">\(i\)</span></p>
+<p>E.g.</p>
+<p><span class="math inline">\(k_1=4\)</span><br />
+<span class="math inline">\(k_2=4\)</span><br />
+<span class="math inline">\(k_1k_2=16\)</span><br />
+<span class="math inline">\(2m=k_1+k_2=8\)</span> ?<br />
+<span class="math inline">\(m=4\)</span><br />
+<span class="math inline">\(\frac{k_ik_j}{2m}=\frac{16}{8}=2\)</span></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+</div>
+<div id="louvain-algorithm" class="section level4 unnumbered hasAnchor">
+<h4>13.3 Louvain Algorithm<a href="stanfordyoutube.html#louvain-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="detecting-overlapping-communities" class="section level4 unnumbered hasAnchor">
+<h4>13.4 Detecting Overlapping Communities<a href="stanfordyoutube.html#detecting-overlapping-communities" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>
 <hr />
 </div>
@@ -525,6 +618,24 @@ where,<br />
 <hr />
 </div>
 <div id="section-1" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section-2" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section-3" class="section level4 unnumbered">
+<h4 class="unnumbered"></h4>
+<p>Link to <a href="">video</a></p>
+<p><a href="stanfordyoutube.html#contents">back to contents</a></p>
+<hr />
+</div>
+<div id="section-4" class="section level4 unnumbered">
 <h4 class="unnumbered"></h4>
 <p>Link to <a href="">video</a></p>
 <p><a href="stanfordyoutube.html#contents">back to contents</a></p>

@@ -13,6 +13,10 @@ Link to [playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhP
 [3.1 Node Embeddings]  
 [3.2 Random Walk Approaches for Node Embeddings]  
 [3.3 Embedding Entire Graphs]  
+[13.1 Community Detection in Networks]  
+[13.2 Network Communities]  
+[13.3 Louvain Algorithm]  
+[13.4 Detecting Overlapping Communities]  
 
 [blah](#blah)
 
@@ -359,9 +363,114 @@ $N_R(u)$ = neighbourhood of node $u$ by random walk strategy $R$ (i.e. random wa
 
 Link to [video](https://www.youtube.com/watch?v=eliMLfJeu7A&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=9)
 
+* goal is to embed a sub-graph or an entire graph in an embedding space
+* e.g. identify toxic vs non-toxic molecules in the embedding space
+
+
+[back to contents](#contents)
+
+***
+
+#### 13.1 Community Detection in Networks {-}
+
+Link to [video](https://www.youtube.com/watch?v=KXi4ha79o3s&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=38)
+
+* clustering of nodes based on the structure of the network
+
+##### Social networks example {-}
+
+* socially strong short range edges within communities, redundant in terms of information access
+* socially weak long range edges between communities, allow access to information from other parts of the graph
+
+##### Edge overlap {-}
+
+* measures how strong an edge is structurally
+* what is the fraction of neighbours that the edge end points have in common
+* example using phone calls (=edges) showed positive correlation between edge overlap and the number of phone calls  
+
+[back to contents](#contents)
+
+***
+
+#### 13.2 Network Communities {-}
+
+Link to [video](https://www.youtube.com/watch?v=mJQrtXZT5pw&list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn&index=38)
+
+* communities / clusters / groups / modules
+  * lots of internal connections
+  * few external connections
+  
+##### Example: Karate club dataset {-}
+
+* club split in two during study
+* the two factions show strikingly dense within-community connections
+
+##### Modularity {-}
+
+* measures how well a network is partitioned into communities  
+* for a given partitioning of the network $s \in S$:
+
+$$Q \propto \sum_{s \in S} \left[(\# \; edges \; within \; group \; s)-(expected \; \# \; edges \; within \; group \; s)\right]$$
+
+* the expected number of edges between nodes $i$ and $j$ of degrees $k_i$ and $k_j$ is given by  
+
+$$\frac{k_ik_j}{2m}$$
+where,
+
+$m$ = the total number of edges in the graph  
+$2m$ = the total number of edge end points in the graph  
+$k_i$ = the number of out-going edges from node $i$  
+
+E.g. 
+
+$k_1=4$  
+$k_2=4$  
+$k_1k_2=16$  
+$2m=k_1+k_2=8$ ?  
+$m=4$  
+$\frac{k_ik_j}{2m}=\frac{16}{8}=2$
 
 
 
+[back to contents](#contents)
+
+***
+
+#### 13.3 Louvain Algorithm {-}
+
+Link to [video]()
+
+[back to contents](#contents)
+
+***
+
+#### 13.4 Detecting Overlapping Communities {-}
+
+Link to [video]()
+
+[back to contents](#contents)
+
+***
+
+#### {-}
+
+Link to [video]()
+
+[back to contents](#contents)
+
+***
+
+#### {-}
+
+Link to [video]()
+
+[back to contents](#contents)
+
+***
+
+#### {-}
+
+Link to [video]()
 
 [back to contents](#contents)
 

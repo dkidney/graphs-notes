@@ -1,4 +1,9 @@
 # Community detection
 
-## Louvain
+## Resolution limit
 
+## Algorithms
+
+### Louvain
+
+### Leiden
